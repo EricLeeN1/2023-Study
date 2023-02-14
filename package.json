@@ -2,9 +2,14 @@
   "name": "EricLibrary",
   "version": "1.0.0",
   "description": "生成一个库",
-  "main": "clone.js",
+  "main": "dist/index.js",
+  "jsnext": "dist/index/esm.js",
+  "module": "dist/index.esm.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:self": "rollup -c config/rollup.config.js",
+    "build:esm": "rollup -c config/rollup.config.esm.js",
+    "build:aio": "rollup -c config/rollup.config.aio.js",
+    "build": "npm run build:self && npm run build:esm && npm run build:aio"
   },
   "keywords": [
     "Library"
@@ -12,6 +17,8 @@
   "author": "Eric",
   "license": "ISC",
   "devDependencies": {
-    "rollup": "^3.15.0"
-  }
+    "rollup": "^0.57.1",
+    "rollup-plugin-node-resolve": "^3.0.3"
+  },
+  "sideEffects": false
 }
