@@ -5,32 +5,32 @@
 
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+
+var _Array$from = _interopDefault(require('@babel/runtime-corejs2/core-js/array/from'));
 
 function type(data) {
   return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
 }
-
-console.log(type([]));
-console.log(type({}));
+_Array$from("abc"); // ['a', 'b', 'c']
 
 function clone(source) {
-  const t = type(source);
+  var t = type(source);
   if (t !== "object" && t !== "array") {
     return source;
   }
-  let target;
+  var target;
   if (t === "object") {
     target = {};
-    for (const i in source) {
+    for (var i in source) {
       if (Object.hasOwnProperty(i)) {
         target[i] = clone(source[i]);
       }
     }
   } else {
     target = [];
-    for (let i = 0; i < array.length; i++) {
-      target[i] = clone(source[i]);
+    for (var _i = 0; _i < array.length; _i++) {
+      target[_i] = clone(source[_i]);
     }
   }
   return target;

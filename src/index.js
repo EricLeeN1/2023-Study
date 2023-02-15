@@ -2,8 +2,7 @@ export function type(data) {
   return Object.prototype.toString.call(data).slice(8, -1).toLowerCase();
 }
 
-console.log(type([]));
-console.log(type({}));
+Array.from("abc"); // ['a', 'b', 'c']
 
 export function clone(source) {
   const t = type(source);

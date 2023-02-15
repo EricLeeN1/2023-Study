@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "jsnext": "dist/index/esm.js",
   "module": "dist/index.esm.js",
+  "sideEffects": false,
   "scripts": {
     "build:self": "rollup -c config/rollup.config.js",
     "build:esm": "rollup -c config/rollup.config.esm.js",
@@ -17,8 +18,16 @@
   "author": "Eric",
   "license": "ISC",
   "devDependencies": {
+    "@babel/core": "^7.1.2",
+    "@babel/plugin-transform-runtime": "^7.19.6",
+    "@babel/preset-env": "^7.1.0",
     "rollup": "^0.57.1",
+    "rollup-plugin-babel": "^4.0.3",
+    "rollup-plugin-commonjs": "^8.3.0",
     "rollup-plugin-node-resolve": "^3.0.3"
   },
-  "sideEffects": false
+  "dependencies": {
+    "@babel/runtime-corejs2": "^7.20.13",
+    "core-js": "^3.28.0"
+  }
 }
